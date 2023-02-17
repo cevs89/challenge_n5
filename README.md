@@ -24,6 +24,15 @@ There are 3 types of linters:
 * Flake8: which analyze code: `flake8 apps/`
 * Isort: isort your imports, so you don't have to: `isort apps/ --profile black`
 
+```
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+black....................................................................Passed
+flake8...................................................................Passed
+isort....................................................................Passed
+```
+
 ### You can also run all linters as follows:
 
 * `pre-commit run --all-files`
