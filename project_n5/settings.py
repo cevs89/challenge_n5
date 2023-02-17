@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-!+t=krli8=vgi9a_-#h5_k0no-spm$ho9%%y@e--)-6bu^!q63
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+ALGORITHM = "HS256"
+
+APP_NAME = "challange-n5"
 
 
 # Application definition
@@ -42,7 +46,9 @@ INSTALLED_APPS = [
 
 PROJECT_APPS = ["apps.api"]
 
-INSTALLED_APPS += PROJECT_APPS
+THIRDS_APPS = ["rest_framework"]
+
+INSTALLED_APPS += PROJECT_APPS + THIRDS_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

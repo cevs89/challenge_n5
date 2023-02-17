@@ -30,6 +30,10 @@ class PersonOfficer(BaseModel):
     personal_id = models.IntegerField(default=0)
     token_officer = models.TextField(null=True, blank=True)
 
+    @property
+    def is_authenticated(self):
+        return True
+
     class Meta:
         verbose_name = "Officer"
         verbose_name_plural = "Person Officer"

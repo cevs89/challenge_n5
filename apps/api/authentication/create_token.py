@@ -1,9 +1,8 @@
 from typing import Type
 
 import jwt
+from django.conf import settings
 from django.db import models
-
-from apps.api.authentication.utils import ALGORITHM, SECRET_NAME
 
 
 class CreateToken:
@@ -28,8 +27,8 @@ class CreateToken:
     def __init__(self, object):
         super(CreateToken, self).__init__()
         self.obj: Type[models.Model] = object
-        self.algorithms: str = ALGORITHM
-        self.secret: str = SECRET_NAME
+        self.algorithms: str = settings.ALGORITHM
+        self.secret: str = settings.APP_NAME
         self.payload_user: dict = dict()
         self.token: str = ""
 
