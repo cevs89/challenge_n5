@@ -42,6 +42,7 @@ This Challenge is about manage a infractions app. Interface and API will require
 
 ## Docker | Run server
 > You has to have installed  `docker` and `docker-compose`
+>
 > Docker: https://docs.docker.com/engine/install/ubuntu/
 > Docker-compose: https://docs.docker.com/compose/install/
 
