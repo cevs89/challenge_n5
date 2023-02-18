@@ -20,12 +20,55 @@ This Challenge is about manage a infractions app. Interface and API will require
 
 `pip install -r requirements/base.txt`
 
-**4.- Run local server**
+
+**4.- Install Migrations**
+
+`python manage.py migrate`
+
+
+**5.- load User Admin**
+
+`python manage.py loaddata fixtures/admin.json`
+
+
+**6.- Run local server**
 
 `python manage.py runserver`
 
+**Comment:**
+
+> If you connect like this, it's just for development and you will have a sqlite3 DB
+
 
 ## Docker | Run server
+> You has to have installed  `docker` and `docker-compose`
+> Docker: https://docs.docker.com/engine/install/ubuntu/
+> Docker-compose: https://docs.docker.com/compose/install/
+
+**Run the command**
+
+>If you need to deploy through Docker I did development a script in bash for make this easier
+
+
+`./server.sh runserver`
+
+This command `build`, `migrations`, `load` and will run the `server`, if you want to development
+in docker environment
+
+**Comment:**
+
+Sometimes you need to run the command with `sudo` in that way you has to run the follows command:
+
+`sudo ./server.sh runserver`
+
+
+## Access to admin Django
+
+You have to use the following credentials
+
+| user        | password      |
+| ------------| --------------|
+| n5now       | backend-1234  |
 
 
 ## Install this if you need to development

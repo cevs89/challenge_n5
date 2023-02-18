@@ -9,6 +9,10 @@ __pycache__/
 # locals DB
 *.db
 
+# Docker Files
+docker/
+data/
+
 # Distribution / packaging
 .Python
 build/
