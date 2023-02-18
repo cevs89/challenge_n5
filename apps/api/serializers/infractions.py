@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import serpy
 
 
@@ -9,7 +11,11 @@ class InfractionSerializer(serpy.Serializer):
     MethodField(): Devuelve el valor de la relacion, se accede mediante una funcion.
     se debe definir como: get_NOMBRE_DEL_CAMPO
 
-    De esta manera se accede al valor de la relacion entre el modelo principal
+    De esta manera se accede al valor de la relacion entre el modelo principal.
+
+
+    Tambien se puede parsear data plana, hacer filtro o cualquier otra funcionalidad
+    necesario dento de cada funcion
     """
 
     patent = serpy.MethodField()
@@ -17,7 +23,7 @@ class InfractionSerializer(serpy.Serializer):
     color = serpy.MethodField()
     vehicle_type = serpy.MethodField()
     person = serpy.MethodField()
-    timestamp = serpy.Field()
+    timestamp = serpy.MethodField()
     comment = serpy.Field()
 
     def get_patent(self, obj):
@@ -38,4 +44,8 @@ class InfractionSerializer(serpy.Serializer):
 
     def get_person(self, obj):
         if obj.vehicle is not None:
-            return obj.vehicle.person.name_person
+            return obj.vehicle.person.email_person
+
+    def get_timestamp(self, obj):
+        if obj.timestamp is not None:
+            return datetime.strftime(obj.timestamp, "%Y-%m-%d %H:%M")

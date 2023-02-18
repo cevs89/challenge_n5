@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from apps.api.views import InfractionViewSet
+from apps.api.views import InfractionViewSet, ReportsInfractionViewSet
 
 router = DefaultRouter()
 # Officers Routes
@@ -27,4 +27,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Includin all routes
     path("api/v1/", include(router.urls)),
+    # Reportes with params
+    path("api/v1/report/infraction/<str:email>/", ReportsInfractionViewSet.as_view()),
 ]

@@ -10,7 +10,7 @@ T = TypeVar("T", bound=Model)
 
 class InfractionService:
     """
-    Esta clase representa la loagica
+    Esta clase representa la logica
 
     params:
         _data: models by pydantic
