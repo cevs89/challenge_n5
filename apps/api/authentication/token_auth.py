@@ -1,7 +1,7 @@
 import re
 from typing import Tuple, Type
 
-from django.db import models
+from django.db.models import Model
 from rest_framework import authentication, exceptions
 
 import apps.api.models as model
@@ -21,10 +21,10 @@ class TokenAuthOfficer(authentication.BaseAuthentication):
 
     def __init__(self, *args, **kwargs):
         self.regex_bearer: Type[re] = re.compile(r"^[Bb]earer (.*)$")
-        self.queryset: Type[models.Model] = model.PersonOfficer
+        self.queryset: Type[Model] = model.PersonOfficer
         self.value_decode: str = ""
 
-    def authenticate(self, request) -> Tuple[Type[models.Model], None]:
+    def authenticate(self, request) -> Tuple[Type[Model], None]:
         _secret_token = request.META.get("HTTP_AUTHORIZATION")
 
         if not _secret_token:

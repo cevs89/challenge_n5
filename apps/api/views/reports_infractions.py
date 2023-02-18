@@ -15,7 +15,7 @@ class ReportsInfractionViewSet(APIView):
     service_reports = ReportsInfractionService()
     serializer_class = InfractionSerializer
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs) -> Response:
         # Validate json body is correct
         try:
             _validation_data = ReportsInfractionValidator.parse_obj(kwargs)

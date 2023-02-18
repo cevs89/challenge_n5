@@ -2,7 +2,7 @@ from typing import Type
 
 import jwt
 from django.conf import settings
-from django.db import models
+from django.db.models import Model
 
 
 class CreateToken:
@@ -26,7 +26,7 @@ class CreateToken:
 
     def __init__(self, object):
         super(CreateToken, self).__init__()
-        self.obj: Type[models.Model] = object
+        self.obj: Type[Model] = object
         self.algorithms: str = settings.ALGORITHM
         self.secret: str = settings.APP_NAME
         self.payload_user: dict = dict()

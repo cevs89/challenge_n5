@@ -23,6 +23,7 @@ class InfractionSerializer(serpy.Serializer):
     color = serpy.MethodField()
     vehicle_type = serpy.MethodField()
     person = serpy.MethodField()
+    officer = serpy.MethodField()
     timestamp = serpy.MethodField()
     comment = serpy.Field()
 
@@ -49,3 +50,7 @@ class InfractionSerializer(serpy.Serializer):
     def get_timestamp(self, obj):
         if obj.timestamp is not None:
             return datetime.strftime(obj.timestamp, "%Y-%m-%d %H:%M")
+
+    def get_officer(self, obj):
+        if obj.officer_allowed is not None:
+            return obj.officer_allowed.name_officer

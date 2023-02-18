@@ -24,6 +24,10 @@ class PersonOfficer(BaseModel):
             Y este creara un token tipo JWT, y tambien se creara un servicio
             para verificar su validez a la hora de las peticiones
 
+        is_authenticated:
+            respondera siempre True, ya que estas validacion estan manejadas por:
+            apps.api.authentication.TokenAuthOfficer
+
     """
 
     name_officer = models.CharField(max_length=60, null=False)
@@ -31,7 +35,7 @@ class PersonOfficer(BaseModel):
     token_officer = models.TextField(null=True, blank=True)
 
     @property
-    def is_authenticated(self):
+    def is_authenticated(self) -> bool:
         return True
 
     class Meta:

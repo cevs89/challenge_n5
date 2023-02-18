@@ -12,11 +12,10 @@ class ValidationsToken:
 
     Funcciones:
         No accesibles:
-            __generate_payload: Genera un diccionario con lo necesario para crear el token
-            __create_token: Crear el token con la informacion disponible
+            __decode_token: Decodifica el token y valida que su firma uuid sea correcta
 
         Accesibles:
-            execute: llama a los metodos y retorna el token:str
+            validate: llama a los metodos y retorna el token:str
 
     """
 
