@@ -44,6 +44,7 @@ This Challenge is about manage a infractions app. Interface and API will require
 > You has to have installed  `docker` and `docker-compose`
 >
 > Docker: https://docs.docker.com/engine/install/ubuntu/
+>
 > Docker-compose: https://docs.docker.com/compose/install/
 
 **Run the command**
@@ -70,6 +71,10 @@ You have to use the following credentials
 | user        | password      |
 | ------------| --------------|
 | n5now       | backend-1234  |
+
+## Documentation API
+
+Docs: [https://github.com/cevs89/challenge_n5/wiki](https://github.com/cevs89/challenge_n5/wiki)
 
 
 ## Install this if you need to development

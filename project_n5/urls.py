@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
 from apps.api.views import InfractionViewSet, ReportsInfractionViewSet
@@ -25,6 +26,7 @@ router.register(r"infraction", InfractionViewSet, basename="infraction")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", RedirectView.as_view(url="admin/", permanent=False), name="index"),
     # Includin all routes
     path("api/v1/", include(router.urls)),
     # Reportes with params

@@ -26,7 +26,7 @@ class ReportsInfractionViewSet(APIView):
         try:
             _data_save = self.service_reports.find(_validation_data)
         except Exception as e:
-            return Response(str(e), status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": str(e)}, status=status.HTTP_404_NOT_FOUND)
 
         # Serializar object return
         serializer = self.serializer_class(_data_save, many=True)

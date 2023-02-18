@@ -24,14 +24,22 @@ class InfractionViewSet(viewsets.ViewSet):
     def create(self, request) -> Response:
         # Validate json body is correct
         try:
+            json.dumps(request.data)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=status.HTTP_404_NOT_FOUND)
+
+        # Validate data body is correct
+        try:
             _validation_data = InfractionValidator.parse_obj(request.data)
         except Exception as e:
             return Response(json.loads(e.json()), status=status.HTTP_404_NOT_FOUND)
+
         # Service save logical service
         try:
             _data_save = self.service_infraction.save(_validation_data, request.user)
         except Exception as e:
-            return Response(str(e), status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": str(e)}, status=status.HTTP_404_NOT_FOUND)
+
         # Serializar object return
         serializer = self.serializer_class(_data_save)
         return Response(serializer.data, status=status.HTTP_200_OK)

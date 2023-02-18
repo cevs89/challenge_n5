@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel, Extra, constr
 
 
 class InfractionValidator(BaseModel):
@@ -18,7 +18,7 @@ class InfractionValidator(BaseModel):
     No Acepta campos que no esten declarados
     """
 
-    patent: str
+    patent: constr(max_length=60)
     timestamp: datetime
     comment: str
 
