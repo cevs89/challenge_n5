@@ -8,7 +8,9 @@ class Infractions(BaseModel):
     Modelo Representa el registro de una infraccion
     Field Required:
         timestamp: datetime
+        comment: str -> Free Text
         vehicle: Foreign
+        officer_allowed: Foreign
 
     Comentarios:
         Quiza este modelo debe manejar status de la infraccion,

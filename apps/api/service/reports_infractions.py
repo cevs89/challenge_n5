@@ -19,6 +19,10 @@ class ReportsInfractionService:
         # find person with this email _data.email
         try:
             query_person = PersonCitizen.objects.get(email_person=_data.email)
+        except query_person.MultipleObjectsReturned:
+            raise ValueError(
+                f"Email: {_data.email} exists several times in the models, you need to fix it"
+            )
         except PersonCitizen.DoesNotExist:
             raise ValueError(f"Email: {_data.email} Doesn't exists")
 

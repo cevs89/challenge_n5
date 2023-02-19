@@ -66,6 +66,9 @@ Sometimes you need to run the command with `sudo` in that way you has to run the
 
 ## Access to admin Django
 
+URL Admin: http://localhost:8000/admin/
+
+
 You have to use the following credentials
 
 | user        | password      |
@@ -106,3 +109,7 @@ black....................................................................Passed
 flake8...................................................................Passed
 isort....................................................................Passed
 ```
+
+### 5.- Run test
+
+`python manage.py test`

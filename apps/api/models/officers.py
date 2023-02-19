@@ -31,7 +31,7 @@ class PersonOfficer(BaseModel):
     """
 
     name_officer = models.CharField(max_length=60, null=False)
-    personal_id = models.IntegerField(default=0)
+    personal_id = models.IntegerField(unique=True)
     token_officer = models.TextField(null=True, blank=True)
 
     @property

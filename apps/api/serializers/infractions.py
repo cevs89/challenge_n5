@@ -18,6 +18,7 @@ class InfractionSerializer(serpy.Serializer):
     necesario dento de cada funcion
     """
 
+    id = serpy.Field()
     patent = serpy.MethodField()
     brand = serpy.MethodField()
     color = serpy.MethodField()

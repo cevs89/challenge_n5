@@ -27,7 +27,6 @@ class Vehicle(BaseModel):
     Campos requerdos:
         patent: str
         person: Foreign
-        vehicle_type: Choince Str
 
     Comentarios:
         Campos que debe ser un tabla de base de datos
@@ -39,8 +38,8 @@ class Vehicle(BaseModel):
     """
 
     patent = models.CharField(max_length=60, null=False)
-    brand = models.CharField(max_length=60, null=True)
-    color = models.CharField(max_length=60, null=True)
+    brand = models.CharField(max_length=60, null=True, blank=True)
+    color = models.CharField(max_length=60, null=True, blank=True)
     vehicle_type = models.CharField(
         max_length=50, choices=TypeVehicle.choices, default=TypeVehicle.CAR
     )

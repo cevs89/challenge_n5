@@ -15,7 +15,7 @@ class PersonCitizen(BaseModel):
     """
 
     name_person = models.CharField(max_length=60, null=False)
-    email_person = models.EmailField(max_length=255, null=False)
+    email_person = models.EmailField(max_length=255, null=False, unique=True)
 
     class Meta:
         verbose_name = "Person"
